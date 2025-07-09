@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: techcrm-mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: techcrm
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
